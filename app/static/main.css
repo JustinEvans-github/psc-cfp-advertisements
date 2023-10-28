@@ -1,0 +1,71 @@
+.container {
+    padding-right: 120px;
+    padding-left: 120px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    box-sizing: border-box;
+}
+
+#panel {
+border-color: #2392a9;
+margin-bottom: 23px;
+background-color: #fff;
+border: 1px solid transparent;
+border-radius: 4px;
+font-family: "Noto Sans",sans-serif;
+border-color: #2392a9;
+
+}
+
+.panel-heading {
+color: #31708f;
+background-color: #d9edf7;
+border-color: #2392a9;
+font-size: 1.2em;
+box-sizing: border-box;
+}
+
+.panel-title {
+padding: 10px 15px;
+border-bottom: 1px solid transparent;
+border-top-left-radius: 3px;
+border-top-right-radius: 3px;
+color: #31708f;
+border-color: #31708f;
+margin: 0;
+}
+
+.panel-body {
+padding: 15px;
+}
+
+.summaryArea {
+position: relative;
+min-height: 1px;
+padding-right: 15px;
+padding-left: 15px;
+font-size: 20px;
+line-height: 1.65em;
+
+}
+
+/* .chartArea {
+position: relative;
+min-height: 1px;
+padding-right: 15px;
+padding-left: 15px;
+} */
+
+#chart {
+    width: 74%;
+    padding: 0;
+    display: inline-block;
+}
+
+#choice_div {
+    width: 25%;
+    flex-direction: column;
+    padding: 0;
+    display: inline-block;
+}
