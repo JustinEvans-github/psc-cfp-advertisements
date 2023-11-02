@@ -1,7 +1,7 @@
 // TODO: describe plot
 // import data from './data.js';
 
-function createBarChart() {
+function createBarGraph() {
 
     const jsonData = window.chartData;
     console.log(chartData);
@@ -18,8 +18,8 @@ function createBarChart() {
     const uniqueorganizations = [...new Set(data.map(d => d.organization))];
 
     // Populate the dropdown with unique fiscal years
-    const yearSelect = d3.select("#organization-select");
-    yearSelect.selectAll("option")
+    const orgSelect = d3.select("#organization-select");
+    orgSelect.selectAll("option")
     .data(uniqueorganizations)
     .enter().append("option")
     .text(d => d);
@@ -32,7 +32,7 @@ function createBarChart() {
     const margin = { top: 20, right: 20, bottom: 30, left: 40 };
 
     var svg = d3
-        .select("#chart")
+        .select("#d3-bar-graph")
         .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -93,7 +93,7 @@ function createBarChart() {
     updatePlot(uniqueorganizations[0]);
 
     // Add event listener to the dropdown to update the plot
-    yearSelect.on("change", function () {
+    orgSelect.on("change", function () {
         const selectedorganization = this.value;
         updatePlot(selectedorganization);
 
@@ -101,4 +101,4 @@ function createBarChart() {
 
 }
 
-document.addEventListener("DOMContentLoaded", createBarChart);
+document.addEventListener("DOMContentLoaded", createBarGraph);
