@@ -1,71 +1,86 @@
+body {
+    overflow-x: auto; /* Allow x-axis scrollbar when content overflows */
+    white-space: nowrap; 
+}
+
 .container {
-    padding-right: 120px;
-    padding-left: 120px;
+    padding-right: 15px;
+    padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+    font-size: 20px;
+    font-family: "Noto Sans",sans-serif;
+}
+
+#row-no-gutters{
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.main-title {
+    margin-top: 1rem;
+    margin-bottom: 5px;
+    font-size: 1.7em;
+    font-family: sans-serif;
+    font-variant-ligatures: no-common-ligatures;
+    font-weight: 700;
+}
+
+.main-title::after {
+    content: "";
     display: block;
+    width: 70px;
+    padding-bottom: 8px;
+    border-bottom: 0.18em solid #af3c43;
+}
+
+hr {
+    margin-top: 23px;
+    margin-bottom: 23px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+#viz{
     box-sizing: border-box;
+    display: block;
+    width: 100%; 
 }
 
-#panel {
-border-color: #2392a9;
-margin-bottom: 23px;
-background-color: #fff;
-border: 1px solid transparent;
-border-radius: 4px;
-font-family: "Noto Sans",sans-serif;
-border-color: #2392a9;
 
-}
 
-.panel-heading {
-color: #31708f;
-background-color: #d9edf7;
-border-color: #2392a9;
-font-size: 1.2em;
-box-sizing: border-box;
-}
+/* Selectors for charts */
+.h4 {
+    margin: 6px 0 6px 0;
+    font-size: 1rem;
+  }
 
-.panel-title {
-padding: 10px 15px;
-border-bottom: 1px solid transparent;
-border-top-left-radius: 3px;
-border-top-right-radius: 3px;
-color: #31708f;
-border-color: #31708f;
-margin: 0;
-}
-
-.panel-body {
-padding: 15px;
-}
-
-.summaryArea {
-position: relative;
-min-height: 1px;
-padding-right: 15px;
-padding-left: 15px;
-font-size: 20px;
-line-height: 1.65em;
-
-}
-
-/* .chartArea {
-position: relative;
-min-height: 1px;
-padding-right: 15px;
-padding-left: 15px;
-} */
-
-#chart {
-    width: 74%;
-    padding: 0;
+.col-xs-3 {
     display: inline-block;
+    width: 600px;
+    padding: 0;
+    vertical-align: top;
+    position: relative;
+    height: 500px;    
 }
 
 #choice_div {
-    width: 25%;
     flex-direction: column;
     padding: 0;
+    float: left;
+    top: 15px;
+}
+
+/* Charts */
+.col-xs-9 {
     display: inline-block;
+    width: calc(100% - 500px);
+    padding: 0;
+    vertical-align: top;
+    overflow-x: auto;  
+}
+
+#chart {
+    padding: 0;
+    float: left;
 }
