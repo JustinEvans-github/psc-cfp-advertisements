@@ -1,21 +1,28 @@
 // TODO: describe plot
 // import data from './data.js';
 
+// TODO: fix bar graph- it is taking one instance not the SUM of total_submitted
+
 function createBarGraph() {
 
     const jsonData = window.chartData;
-    console.log(chartData);
+    console.log(jsonData)
 
     // Convert JSON data to an array of objects
     const data = Object.keys(jsonData["organization_e"]).map((key) => ({
+    classifications: jsonData["classifications"][key],
     organization: jsonData["organization_e"][key],
     creation_date_month: jsonData["creation_date_month"][key],
     total_submitted: jsonData["total_submitted_sup"][key],
     }));
 
-
     // Get the unique fiscal years
     const uniqueorganizations = [...new Set(data.map(d => d.organization))];
+    uniqueorganizations.sort();
+
+    // Get the unique fiscal years
+    const uniquemonths = [...new Set(data.map(d => d.creation_date_month))];
+    uniquemonths.sort();
 
     // Populate the dropdown with unique fiscal years
     const orgSelect = d3.select("#organization-select");
@@ -23,7 +30,6 @@ function createBarGraph() {
     .data(uniqueorganizations)
     .enter().append("option")
     .text(d => d);
-
 
     // PLOT SETUP
     // Set the dimensions for the SVG and the margins for the plot
@@ -39,57 +45,79 @@ function createBarGraph() {
         .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    // X axis
-    const x = d3.scaleBand()
-    .range([0, width])
-    .domain(data.map(d => d.creation_date_month))
-    .padding(0.2);
-    svg.append("g")
-    .attr("transform", `translate(0, ${height})`)
-    .call(d3.axisBottom(x))
-    .selectAll("text")
-    .attr("transform", "translate(-10,0)rotate(-45)")
-    .style("text-anchor", "end");
-
     // Add Y axis
     const y = d3.scaleLinear()
     .domain([0, d3.max(data, d => d.total_submitted)])
     .range([height, 0]);
-
+    d3.scaleBand
     var yAxis = svg.append("g").call(d3.axisLeft(y));
 
     // PLOT 
     // Create a function to update the plot based on the selected year
     function updatePlot(selectedorganization) {
-    const filteredData = data.filter(d => d.organization === selectedorganization);
+        // Data
+        const filteredData = data.filter(d => d.organization === selectedorganization);
 
-    // Update the y-axis
-    y.domain([0, d3.max(filteredData, d => d.total_submitted)]);
-    yAxis.transition().call(d3.axisLeft(y));
+        // JOB POSTINGS PER MONTH
+        // Set default value of 0 per month before looping
+        const applications_per_month = {}; 
+        uniquemonths.forEach(month => {
+            applications_per_month[month] = 0;
+          });
 
-    // Update or create the bars
-    const bars = svg.selectAll("rect")
-        .data(filteredData);
+        // Iterate through the data and count keys for each 'creation_date_month'
+        filteredData.forEach((item) => {
+            const month = item.creation_date_month;
+            if (applications_per_month[month]) {
+                applications_per_month[month]++; // Increment the count if the month already exists in the object
+            } else {
+                applications_per_month[month] = 1; // Initialize the count if the month is encountered for the first time
+            }
+        });
+    
+        // Formatted data to pass to bar-graph
+        const month_name = Object.keys(applications_per_month);
+        const month_valuesList = Object.values(applications_per_month);
+        const month_maxValue = Math.max(...month_valuesList);
 
-    bars.exit().remove(); // Remove bars not needed
+        console.log(applications_per_month)
 
-    // Data suppression imputed as (*), use NaN check for height metrics
-    var nan_replace = 0; 
+        // X axis
+        const x = d3.scaleBand()
+        .range([0, width])
+        .domain(month_name)
+        .padding(0.2);
+        svg.append("g")
+        .attr("transform", `translate(0, ${height})`)
+        .call(d3.axisBottom(x))
+        .selectAll("text")
+        .attr("transform", "translate(-10,0)rotate(-45)")
+        .style("text-anchor", "end");
 
-    bars.enter().append("rect") // Create new bars
-        .merge(bars) // Merge existing and new bars
-        .attr("x", d => x(d.creation_date_month))
-        .attr("y", d => y(d.total_submitted))
-        .attr("width", x.bandwidth())
-        .attr("height", d => height - y(isNaN(d.total_submitted) ? nan_replace : d.total_submitted)) // Check here
-        // .attr("height", d => height - y(d.total_submitted))
-        .attr("fill", "steelblue");
+        // Update the y-axis
+        y.domain([0, month_maxValue + 1]);
+        yAxis.transition().call(d3.axisLeft(y));
+
+        // Add Bars 
+        const bars = svg.selectAll("rect")
+            .data(month_valuesList);
+        bars.exit().remove(); // Remove bars not needed
+
+        var nan_replace = 0; // Data suppression
+
+        bars.enter().append("rect") // Create new bars
+            .merge(bars) // Merge existing and new bars
+            .attr("x", (d, i) => x(month_name[i]))
+            .attr("y", d => y(d))
+            .attr("width", x.bandwidth())
+            .attr("height", d => height - y(d)) 
+            .attr("fill", "steelblue");
 
     }
 
 
     // PLOT START
-    // Initial plot with the first fiscal year
+    // Initial plot with the organization in the list
     updatePlot(uniqueorganizations[0]);
 
     // Add event listener to the dropdown to update the plot
