@@ -13,9 +13,14 @@
       <main class="main-title">
         Advertisements to the Public Service
       </main>
+      <!-- Introduction -->
       <p>
         This tool is built upon the idea that knowing the historical number of applications, prior.....
       </p>
+
+      <!-- Instructions -->
+      <h2> Instructions</h2>
+      <p> [insert here]</p>
 
       <!-- organization -->
       <h2 id="organization-title">Advertisements - Public Service Total</h2>
@@ -33,23 +38,21 @@
       <!-- Visualization -->
       <hr>
       <div id="viz">
+        <label for="organization-select" class="h4">Select a department or an agency:</label>
+          <select id="organization-select"></select>
+        <label for="fiscal-year-select" class="h4">Time period:</label>
+          <select id="fiscal-year-select"></select>
+        <hr>
+
         <div class="col-xs-3">
-          <div id="choice_div">
-            <label for="organization-select" class="h4">Select an organization</label>
-            <select id="organization-select"></select>
-            <label for="organization-select" class="h4">Select an A</label>
-            <!-- <select id="organization-select"></select>
-            <label for="organization-select" class="h4">Select an B</label>
-            <select id="organization-select"></select>
-            <label for="organization-select" class="h4">Select an C</label>
-            <select id="organization-select"></select> -->
-          </div>
+          <h3>Job Advertisements by Group and Level</h3>
+          <p style="height: 100px">The group and level of the position as classified by the GC. The letters indicate the group the position belongs to and the number represents the level within the group.</p>
+          <div id="d3-treemap"></div>
         </div>
         <div class="col-xs-9">
-          <div id="chart">
-            <div id="d3-treemap"></div>
-            <div id="d3-bar-graph"></div>
-          </div>          
+          <h3>Trends</h3>
+          <p style="height: 100px"></p>
+          <div id="d3-bar-graph"></div>        
         </div>
       </div>
     </div>

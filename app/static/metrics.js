@@ -58,17 +58,21 @@ function text_metrics() {
 
     const organization_count_max_id = utils.findKeyOfMaxValue(applications_per_organization)
     document.getElementById('organization-of-count-max').innerText = organization_count_max_id;
-    
-    
-
 
 
     // Dropdowns
     
     // organizations
-    const orgSelect = d3.select("#fiscal-year-select");
-    orgSelect.selectAll("option")
+    const org_Select = d3.select("#organization-select");
+    org_Select.selectAll("option")
     .data(uniqueorganizations)
+    .enter().append("option")
+    .text(d => d);
+
+    // fiscal years
+    const fiscal_year_Select = d3.select("#fiscal-year-select");
+    fiscal_year_Select.selectAll("option")
+    .data(uniquefiscalyear)
     .enter().append("option")
     .text(d => d);
 
