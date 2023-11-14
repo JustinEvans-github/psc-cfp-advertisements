@@ -11,11 +11,26 @@
   <main class="container">
     <div class="row-no-gutters">
       <main class="main-title">
-        Applications
+        Advertisements to the Public Service
       </main>
       <p>
         This tool is built upon the idea that knowing the historical number of applications, prior.....
       </p>
+
+      <!-- organization -->
+      <h2 id="organization-title">Advertisements - Public Service Total</h2>
+        <div class="organization-text">
+          <img src="{{url_for('static', filename='alert-info.PNG')}}">
+          <p id="organization-text-description">
+            In the Public Service, <span id="organization-count">[insert]</span> organizations posted job advertisements in the
+            <span id="fiscal-year">[insert]</span> fiscal year. In total there were <span id="application-count">[insert]</span> job postings,
+            where the median number of job postings per organization was <span id="organization-count-median">[insert]</span> 
+            and a max of <span id="organization-count-max">[insert]</span> job posted by the <span id="organization-of-count-max">[insert]</span>.
+            
+          </p>
+        </div>
+
+      <!-- Visualization -->
       <hr>
       <div id="viz">
         <div class="col-xs-3">
@@ -46,6 +61,8 @@
       var json_text = '{{chartData|tojson}}';
       window.chartData = JSON.parse(json_text);
   </script>
+  <!-- <script src="{{url_for('static', filename='utils.js')}}" type="module" ></script> -->
+  <script defer src="{{url_for('static', filename='metrics.js')}}" type="module"></script>
   <script defer src="{{url_for('static', filename='treemap-graph.js')}}" type="text/javascript"></script>
   <script defer src="{{url_for('static', filename='bar-graph.js')}}" type="text/javascript"></script>
 

@@ -34,6 +34,46 @@ body {
     border-bottom: 0.18em solid #af3c43;
 }
 
+/* organization */
+.organization-title {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    --supports-has: true;
+    box-sizing: border-box;
+    line-height: 1.1;
+    color: inherit;
+    margin-bottom: 11.5px;
+    margin-top: 38px;
+    font-family: Lato,sans-serif;
+    font-variant-ligatures: no-common-ligatures;
+    font-weight: 700;
+    font-size: 1.6em;
+    display: block;
+}
+
+.organization-text{
+    display: flex;
+    align-items: center;
+}
+
+#organization-text-description{
+    max-width: 50%;
+    white-space: wrap; 
+}
+
+.organization-text img {
+    max-width: 10%;
+    max-height: 150px;
+    margin-right: 10px;
+}
+
+.organization-text span {
+    font-weight: 700;
+}
+
+/*  Line divider */
 hr {
     margin-top: 23px;
     margin-bottom: 23px;
