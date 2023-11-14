@@ -20,11 +20,11 @@ function createBarGraph() {
     const uniqueorganizations = [...new Set(data.map(d => d.organization))];
     uniqueorganizations.sort();
 
-    // Get the unique fiscal years
+    // Get the unique months
     const uniquemonths = [...new Set(data.map(d => d.creation_date_month))];
     uniquemonths.sort();
 
-    // Populate the dropdown with unique fiscal years
+    // Populate the dropdown with unique organizations
     const orgSelect = d3.select("#organization-select");
     orgSelect.selectAll("option")
     .data(uniqueorganizations)
