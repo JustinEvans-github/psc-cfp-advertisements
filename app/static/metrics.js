@@ -16,9 +16,9 @@ function text_metrics() {
 
     // OVERALL PUBLIC SERVICE METRICS
 
-    // application count
-    var application_count = data.length;
-    document.getElementById('application-count').innerText = application_count;
+    // advertisement count
+    var advertisement_count = data.length;
+    document.getElementById('advertisement-count').innerText = advertisement_count;
 
     // organization count
     const uniqueorganizations = [...new Set(data.map(d => d.organization))];
@@ -29,7 +29,6 @@ function text_metrics() {
     const uniquefiscalyear = [...new Set(data.map(d => d.fiscal_year))];
     var fiscal_year = uniquefiscalyear[0];
     document.getElementById('fiscal-year').innerText = fiscal_year;
-
 
     // job postings per organization
     const applications_per_organization = {}; 
@@ -46,9 +45,7 @@ function text_metrics() {
         }
     });
 
-    console.log(applications_per_organization)
-
-    // Formatted data to pass to bar-graph
+    // data to pass to in-line text
     const organization_values = Object.values(applications_per_organization);
     const organization_values_max = Math.max(...organization_values);
     document.getElementById('organization-count-max').innerText = organization_values_max;
@@ -60,7 +57,7 @@ function text_metrics() {
     document.getElementById('organization-of-count-max').innerText = organization_count_max_id;
 
 
-    // Dropdowns
+    // DROPDOWNS
     
     // organizations
     const org_Select = d3.select("#organization-select");

@@ -28,7 +28,7 @@
           <img src="{{url_for('static', filename='alert-info.PNG')}}">
           <p id="organization-text-description">
             In the Public Service, <span id="organization-count">[insert]</span> organizations posted job advertisements in the
-            <span id="fiscal-year">[insert]</span> fiscal year. In total there were <span id="application-count">[insert]</span> job postings,
+            <span id="fiscal-year">[insert]</span> fiscal year. In total there were <span id="advertisement-count">[insert]</span> job postings,
             where the median number of job postings per organization was <span id="organization-count-median">[insert]</span> 
             and a max of <span id="organization-count-max">[insert]</span> job posted by the <span id="organization-of-count-max">[insert]</span>.
             
@@ -50,9 +50,15 @@
           <div id="d3-treemap"></div>
         </div>
         <div class="col-xs-9">
-          <h3>Trends</h3>
-          <p style="height: 100px"></p>
-          <div id="d3-bar-graph"></div>        
+          <h3>Advertisement Trends</h3>
+          <p style="height: 100px">
+          The <span id="org-name">[insert]</span> advertised <span id="org-advertisement-count">[insert]</span> job postings in this fiscal year.
+          This department/agency advertised the most in the month of <span id="advertisement-max-month">[insert]</span> and primarily sought applicants for an <span id="advertisement-tenure-max">[insert]</span> Tenure.
+          <br><br>
+          In total, there were <span id="applicant-count">[insert]</span> applicants
+          </p>
+          <div id="d3-bar-graph-advert-by-month"></div>   
+          <div id="d3-bar-graph-tenure"></div>   
         </div>
       </div>
     </div>

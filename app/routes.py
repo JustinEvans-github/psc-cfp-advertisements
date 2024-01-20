@@ -16,7 +16,8 @@ def index():
 
     # add month column
     df['creation_date_month'] = df['creation_date'].astype(str).str[2:5]
-    data = df[['organization_e','creation_date_month','total_submitted_sup','classifications','fiscal_year']]
+    data = df[['organization_e','creation_date_month','total_submitted_sup','classifications','fiscal_year',
+               'indeterminate','specified_term', 'acting', 'assignment', 'deployment', 'secondment']]
 
     # export to be useable in JS
     data_json = loads(data.to_json())

@@ -98,11 +98,14 @@ hr {
 
 .col-xs-3 {
     display: inline-block;
-    width: 50%;
+    width: 40%;
     padding: 0;
     vertical-align: top;
-    position: relative;
-    height: 500px;    
+    position: relative; 
+}
+
+.col-xs-3 span {
+    font-weight: 700;
 }
 
 #choice_div {
@@ -115,9 +118,13 @@ hr {
 /* Charts */
 .col-xs-9 {
     display: inline-block;
-    width: 45%;
+    width: 55%;
     margin-left:50px;
     padding: 0;
     vertical-align: top;
     overflow-x: auto;  
+}
+
+.col-xs-9 span {
+    font-weight: 700;
 }
