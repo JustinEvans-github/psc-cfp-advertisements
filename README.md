@@ -1,4 +1,4 @@
-# psc-cfp-visualizations-advertisements
+# psc-cfp-advertisements
 
 A dashboard on Advertisements in Canada's public service. Open-source data available on [open.canada.ca](/https://open.canada.ca/data/dataset/e61c8587-2cc9-4775-b34e-f1041ad00410/resource/82f58b1e-b90a-4397-9d20-2a554cb4e1da). 
 
