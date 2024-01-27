@@ -8,6 +8,7 @@
 </head>
 
 <body>
+  <img src="{{url_for('static', filename='banner.PNG')}}" style="padding-left: 120px; height: 150px;">
   <main class="container">
     <div class="row-no-gutters">
       <main class="main-title">
@@ -15,12 +16,17 @@
       </main>
       <!-- Introduction -->
       <p>
-        This tool is built upon the idea that knowing the historical number of applications, prior.....
+        Management of human resources ensures an effective Canada's public service. 
+        For applicants seeking opportunities within the public sector, understanding which departments are actively hiring specific profiles can increase the number of qualified applicants. This knowledge empowers applicants to tailor their applications to align with the needs of hiring departments, increasing their chances of securing meaningful employment. 
+        This data visualization tool therefore provides valuable insights for applicants and employers.
       </p>
 
       <!-- Instructions -->
       <h2> Instructions</h2>
-      <p> [insert here]</p>
+      <ul>
+        <li>Select a department or an agency from the dropdown menu below.</li>
+        <li>Select a time period.</li>
+      </ul>
 
       <!-- organization -->
       <h2 id="organization-title">Advertisements - Public Service Total</h2>
@@ -54,11 +60,11 @@
           <p style="height: 100px">
           The <span id="org-name">[insert]</span> advertised <span id="org-advertisement-count">[insert]</span> job postings in this fiscal year.
           This department/agency advertised the most in the month of <span id="advertisement-max-month">[insert]</span> and primarily sought applicants for an <span id="advertisement-tenure-max">[insert]</span> Tenure.
-          <br><br>
-          In total, there were <span id="applicant-count">[insert]</span> applicants
           </p>
-          <div id="d3-bar-graph-advert-by-month"></div>   
-          <div id="d3-bar-graph-tenure"></div>   
+          <br><br>
+          <div class="d3-container">
+            <div id="d3-bar-graph-advert-by-month"></div>   
+            <div id="d3-bar-graph-tenure"></div>   
         </div>
       </div>
     </div>

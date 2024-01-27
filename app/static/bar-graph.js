@@ -33,8 +33,8 @@ function bar_graph_advert_by_month() {
 
     // PLOT SETUP
     // Set the dimensions for the SVG and the margins for the plot
-    const width = 200;
-    const height = 300;
+    const width = 250;
+    const height = 450;
     const margin = { top: 10, right: 20, bottom: 30, left: 50 };
 
     var svg = d3
@@ -177,9 +177,9 @@ function bar_graph_tenure() {
 
     // PLOT SETUP
     // Set the dimensions for the SVG and the margins for the plot
-    const width = 200;
-    const height = 300;
-    const margin = { top: 40, right: 20, bottom: 75, left: 50 };
+    const width = 250;
+    const height = 450;
+    const margin = { top: 10, right: 20, bottom: 75, left: 50 };
 
     var svg = d3
         .select("#d3-bar-graph-tenure")

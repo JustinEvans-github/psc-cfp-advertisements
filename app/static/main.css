@@ -4,8 +4,8 @@ body {
 }
 
 .container {
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 500px;
+    padding-left: 100px;
     margin-right: auto;
     margin-left: auto;
     margin: 24px;
@@ -128,3 +128,8 @@ hr {
 .col-xs-9 span {
     font-weight: 700;
 }
+
+.d3-container {
+    display: flex;
+  }
+
