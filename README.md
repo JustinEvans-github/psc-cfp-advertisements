@@ -14,8 +14,8 @@ pip install -r requirements.txt
 ```
 
 ## Dashboard
-
-![drawing](docs\visualization-top.PNG) ![drawing](docs\visualization-bottom.PNG)
+<img src="docs\visualization-top.PNG" alt="drawing" width="90%%" />
+<img src="docs\visualization-bottom.PNG" alt="drawing" width="90%" />
 
 ### Style Guide
 [Public Service Commission's Time to Staff](https://www5.psc-cfp.gc.ca/dsad-dsda/time-to-staff/index-en.html)
