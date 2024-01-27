@@ -78,15 +78,13 @@ function createTreemap() {
         children: dataForD3Treemap
         };
 
-        console.log(treemap_data);
-
         // GRAPH - TREEMAP
 
         // set the dimensions and margins of the graph
         // Create the tree map layout
         // Set up the dimensions for the tree map
         // set the dimensions and margins of the graph
-        const margin = {top: 10, right: 10, bottom: 10, left: 10},
+        const margin = {top: 0, right: 0, bottom: 0, left: 0},
         width = 600 - margin.left - margin.right,
         height = 600 - margin.top - margin.bottom;
 
@@ -187,7 +185,6 @@ function createTreemap() {
         }
 
         // Run default plot
-        console.log(uniqueorganizations[0])
         createTreemap.updatePlot(uniqueorganizations[0])
 
     }
@@ -203,7 +200,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Attach an event listener to the dropdown element
     dropdown.addEventListener("change", function () {
         selectedorganization = dropdown.value;
-        console.log(selectedorganization)
         createTreemap.updatePlot(selectedorganization);
     });
   });
