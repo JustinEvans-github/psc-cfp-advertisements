@@ -6,6 +6,7 @@ A dashboard on Advertisements in Canada's public service. Open-source data avail
 ### Components
 - Website framework in [Flask](/https://flask.palletsprojects.com/en/2.3.x/) using HTML and CSS 
 - Javascript graphing library [D3]([/https://plotly.com/python/](https://d3-graph-gallery.com/))
+- Dynamic, department specific, in-line text is bolded
 
 ## Installation
 
